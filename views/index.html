@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <title>|| ABC Inc. ||</title>
+        <style>
+
+body {
+  padding: 40px;
+}
+
+.separator {
+  margin-top: 25px;
+  margin-bottom: 80px;
+  border: 0;
+}
+
+.separator--line {
+  border: 0;
+  border-bottom: 5px solid #bada55;
+  width: 0;
+  -webkit-animation: separator-width 1s ease-out forwards;
+          animation: separator-width 1s ease-out forwards;
+}
+
+@-webkit-keyframes separator-width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes separator-width {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.separator--dots {
+  overflow: visible;
+  border: 0;
+  content: "";
+  background-color: #bada55;
+  display: block;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  position: relative;
+}
+.separator--dots:before {
+  content: "";
+  background-color: #bada55;
+  display: block;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  position: absolute;
+  left: -32px;
+  -webkit-animation: dot-move-left 1s ease-out forwards;
+          animation: dot-move-left 1s ease-out forwards;
+}
+.separator--dots:after {
+  content: "";
+  background-color: #bada55;
+  display: block;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  position: absolute;
+  left: 32px;
+  -webkit-animation: dot-move-right 1s ease-out forwards;
+          animation: dot-move-right 1s ease-out forwards;
+}
+
+@-webkit-keyframes dot-move-right {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 32px;
+  }
+}
+
+@keyframes dot-move-right {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 32px;
+  }
+}
+@-webkit-keyframes dot-move-left {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -32px;
+  }
+}
+@keyframes dot-move-left {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -32px;
+  }
+}
+.separator--dotter {
+  border: 0;
+  border-bottom: 5px dotted #bada55;
+  width: 0;
+  -webkit-animation: separator-width 1.5s ease-out forwards;
+          animation: separator-width 1.5s ease-out forwards;
+}
+
+          
+#footer .container #copyright {
+    
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.15em;
+    font-size: 1.2em;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Merriweather', serif;
+}
+
+/* Panels. */
+.splitview {
+    position: relative;
+    width: 100%;
+    min-height: 45vw;
+    overflow: hidden;
+}
+
+.panel {
+    position: absolute;
+    width: 100vw;
+    min-height: 45vw;
+    overflow: hidden;
+}
+
+    .panel .content {
+        position: absolute;
+        width: 100vw;
+        min-height: 45vw;
+        color: #FFF;
+    }
+
+    .panel .description {
+        width: 25%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+
+    .panel img {
+        box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.15);
+        width: 35%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+.bottom {
+    background-color: rgb(44, 44, 44);
+    z-index: 1;
+}
+
+    .bottom .description {
+        right: 5%;
+    }
+
+.top {
+    background-color: rgb(77, 69, 173);
+    z-index: 2;
+    width: 50vw;
+
+    /*-webkit-clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);*/
+}
+
+    .top .description {
+        left: 5%;
+    }
+
+/* Handle. */
+.handle {
+    height: 100%;
+    position: absolute;
+    display: block;
+    background-color: rgb(253, 171, 0);
+    width: 5px;
+    top: 0;
+    left: 50%;
+    z-index: 3;
+}
+
+/* Skewed. */
+.skewed .handle {
+    top: 50%;
+    transform: rotate(30deg) translateY(-50%);
+    height: 200%;
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    transform-origin: top;
+}
+
+.skewed .top {
+    transform: skew(-30deg);
+    margin-left: -1000px;
+    width: calc(50vw + 1000px);
+}
+
+.skewed .top .content {
+    transform: skew(30deg);
+    margin-left: 1000px;
+}
+
+/* Responsive. */
+@media (max-width: 900px) {
+    body {
+        font-size: 75%;
+    }
+}
+body {
+  margin: 0;
+  background: #b2d2c8;
+}
+a {
+  text-decoration: none;
+  color: #92BFB1;
+}
+a:hover {
+  background: #92BFB1;
+  color: #333333;
+}
+.sticky {
+  position: fixed;
+  z-index: 10;
+}
+.navbar--container {
+  top: 15%;
+  background: #ffffff;
+  height: 220px;
+  width: 90px;
+  box-shadow: 2px 2px 15px rgba(51, 51, 51, 0.1);
+}
+.navbar--icon {
+  margin-top: 24px;
+  margin-left: 49px;
+  font-size: 1em;
+}
+.navbar--icon:hover {
+  color: #92BFB1;
+  cursor: pointer;
+}
+.navbar--title {
+  margin-left: 27px;
+  margin-top: 35px;
+}
+.navbar--title h4 {
+  writing-mode: vertical-rl;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+.nav--open {
+  height: 100vh;
+  width: 300px;
+  background: #ffffff;
+  transition: all 0.4s ease-out;
+  opacity: 1;
+  box-shadow: 2px 2px 15px rgba(51, 51, 51, 0.1);
+}
+.nav--open-icon {
+  text-align: right;
+  padding: 20px;
+}
+.nav--open-icon i {
+  font-size: 1.8em;
+  color: #92BFB1;
+}
+.nav--open-icon i:hover {
+  color: #333333;
+  cursor: pointer;
+}
+.nav--open-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin-top: 35%;
+}
+.nav--open-menu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+}
+.nav--open-menu a {
+  font-size: 2em;
+  font-weight: 100;
+  font-family: 'Playfair Display', serif;
+  padding: 15px 0;
+}
+.close {
+  transform: translateX(-300px);
+  transition: all 0.4s ease-out;
+  opacity: 0;
+}
+section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.two {
+  background: #8fbdaf;
+}
+.three {
+  background: #72ac9a;
+}
+h1 {
+  font-family: 'Abril Fatface', serif;
+  margin: 0;
+  line-height: 1em;
+  font-weight: 100;
+  color: #ffffff;
+  font-size: 3.5em;
+}
+h1 span {
+  font-style: italic;
+  text-decoration: underline;
+  color: #72ac9a;
+}
+.light {
+  color: #b2d2c8;
+}
+.underline {
+  text-decoration: underline;
+}
+
+
+
+.container {
+  display: flex;
+  width: 100%;
+  padding: 4% 2%;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.box {
+  flex: 1;
+  overflow: hidden;
+  transition: .5s;
+  margin: 0 2%;
+  box-shadow: 0 20px 30px rgba(0,0,0,.1);
+  line-height: 0;
+}
+
+.box > img {
+  width: 200%;
+  height: calc(100% - 10vh);
+  object-fit: cover; 
+  transition: .5s;
+}
+
+.box > span {
+  font-size: 3.8vh;
+  display: block;
+  text-align: center;
+  height: 10vh;
+  line-height: 2.6;
+}
+
+.box:hover { flex: 1 1 50%; }
+.box:hover > img {
+  width: 100%;
+  height: 100%;
+}
+ 
+
+.main-content {
+  text-align: center;
+  text-transform: uppercase;
+  scroll-snap-type: y mandatory;
+  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.hover,
+.word,
+h1 {
+  cursor: pointer;
+}
+
+h1 {
+  position: relative;
+  color: #fff;
+  font: 900 60px Montserrat;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.main-content {
+  min-height: 1000px;
+}
+
+.hero {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+@media screen and (min-width: 640px) {
+  .hero {
+    background-position: 50% 0;
+  }
+}
+.hero:after {
+  background-color: rgba(62, 92, 135, 0.5);
+  bottom: 0;
+  content: '';
+  left: -2000%;
+  position: absolute;
+  right: -2000%;
+  top: 0;
+  z-index: 1;
+}
+
+.hero-container {
+  box-sizing: border-box;
+  height: auto;
+  padding: 30px 50px;
+  position: relative;
+  z-index: 2;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  -webkit-transition-duration: 1.2s;
+  transition-duration: 1.2s;
+}
+@media screen and (min-width: 640px) {
+  .hero-container {
+    height: 100%;
+  }
+}
+.hero-container p {
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.hero-button {
+  background: rgba(255, 255, 255, 0.8);
+  color: #44575b;
+  font-size: 24px;
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  padding: 20px 90px;
+  text-decoration: none;
+}
+
+.hero-title {
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-size: 17vw;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin: 5px 0;
+  text-align: left;
+  width: 85%;
+}
+@media screen and (min-width: 640px) {
+  .hero-title {
+    font-size: 10vw;
+  }
+}
+
+.main-content {
+  height: auto;
+  padding: 30px 50px;
+  position: relative;
+  width: 60%;
+}
+
+.main-content p {
+  color: #25373D;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-12px, 0, 0);
+    transform: translate3d(-12px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-12px, 0, 0);
+    transform: translate3d(-12px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.animate {
+  -webkit-animation-duration: 0.75s;
+          animation-duration: 0.75s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: cubic-bezier(0.2, 0.3, 0.25, 0.9);
+          animation-timing-function: cubic-bezier(0.2, 0.3, 0.25, 0.9);
+}
+
+.delay {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.delay-400 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.delay-500 {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.delay-600 {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.delay-700 {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+
+.delay-800 {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+        </style>
+    </head>
+    <body>
+      <div class="navbar--container sticky">
+        <div class="navbar--title"><h4>navigation</h4></div>
+        <div class="navbar--icon"><i class="fas fa-bars"></i></div>
+      </div>
+      <div class="nav--open close sticky">
+        <div class="nav--open-icon"><i class="fas fa-times"></i></div>
+        <div class="nav--open-title">explore</div>
+        <div class="nav--open-menu">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="work.html">Work</a>
+          
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      
+      <section class="hero image-as-background" style="background-image: url('https://images.unsplash.com/photo-1443890923422-7819ed4101c0?crop=entropy&dpr=2&fit=crop&fm=jpg&h=700&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1300');">
+        <div class="hero-container" style="padding-left: 10%;">
+          <p class="animate fadeInLeft delay-400">Welcome,</p>
+          <h1 class="hero-title animate fadeInLeft delay-600">The ABCD INC.</h1>
+          <a href="#" class="hero-button animate fadeInLeft delay-800" title="Click to see more">Click Me</a>
+        </div>
+      </section>
+                <section>
+            <div class="splitview skewed">
+              <div class="panel bottom">
+                  <div class="content">
+                      <div class="description">
+                          <p>Let's make it more awesome with Lorem Ipsum. Let it be the contrast.</p>
+                      </div>
+      
+                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/original-image.jpg" alt="Original">
+                  </div>
+              </div>
+      
+              <div class="panel top">
+                  <div class="content">
+                      <div class="description">
+                          <h1>Let's make it more awesome with Lorem Ipsum. Let it be the contrast.</h1>
+                          <p></p>
+                      </div>
+      
+                      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/duotone-image.jpg" alt="Duotone">
+                  </div>
+              </div>
+      
+              <div class="handle"></div>
+          </div>
+          </section>
+            <section style="height: 10em;">
+              <h1 style="font-family: 'Lobster', cursive; padding:2%">Photo Gallery</h1>
+              <h4></h4>
+              
+            </section>
+          <section>
+            <div class="container" style="padding-top: 2%;">
+              <div class="container">
+                <div class="box">
+                  <img src="https://source.unsplash.com/1000x800">
+                  <span>Work Photo 4</span>
+                </div>
+                <div class="box">
+                  <img src="https://source.unsplash.com/1000x802">
+                  <span>Work Photo 3</span>
+                </div>
+                <div class="box">
+                  <img src="https://source.unsplash.com/1000x804">
+                  <span>Work Photot 2</span>
+                </div>
+                <div class="box">
+                  <img src="https://source.unsplash.com/1000x806">
+                  <span>Work Photo 1</span>
+                </div>
+              </div>
+            </div>
+            
+            </section>
+            <br><br><br><br><br>
+            
+<script>
+
+let open = document.querySelector('.navbar--icon');
+let menu = document.querySelector('.nav--open');
+let close = document.querySelector('.nav--open-icon');
+
+open.addEventListener('click', function() {
+  menu.classList.toggle('close');
+});
+
+
+close.addEventListener('click', function() {
+  menu.classList.toggle('close');
+})
+document.addEventListener('DOMContentLoaded', function() {
+    var parent = document.querySelector('.splitview'),
+        topPanel = parent.querySelector('.top'),
+        handle = parent.querySelector('.handle'),
+        skewHack = 0,
+        delta = 0;
+
+    // If the parent has .skewed class, set the skewHack var.
+    if (parent.className.indexOf('skewed') != -1) {
+        skewHack = 1000;
+    }
+
+    parent.addEventListener('mousemove', function(event) {
+        // Get the delta between the mouse position and center point.
+        delta = (event.clientX - window.innerWidth / 2) * 0.5;
+
+        // Move the handle.
+        handle.style.left = event.clientX + delta + 'px';
+
+        // Adjust the top panel width.
+        topPanel.style.width = event.clientX + skewHack + delta + 'px';
+    });
+});
+</script>
+<script src="https://kit.fontawesome.com/a274929d95.js" crossorigin="anonymous"></script>
+  </body>
+
+</html>

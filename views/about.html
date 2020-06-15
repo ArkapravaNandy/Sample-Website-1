@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Playfair+Display:wght@600&family=Titillium+Web&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <title>|| ABC Inc. ||</title>
+        <style>
+            .box{
+    width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 15px;
+    margin: 0 auto;
+  }
+  .card{
+    
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+  }
+  .card:before,
+  .card:after
+  {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: #fff;
+    transition: 0.5s;
+    z-index:-1;
+  }
+  .card:hover:before{
+  transform: rotate(20deg);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
+  }
+  .card:hover:after{
+  transform: rotate(10deg);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
+  }
+  .card .imgBx{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background: #222;
+  transition: 0.5s;
+  z-index: 1;
+  }
+  
+  .card:hover .imgBx
+  {
+    bottom: 80px;
+  }
+
+  .card .imgBx img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .card .details{
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      height: 60px;
+      text-align: center;
+  }
+
+  .card .details h2{
+   margin: 0;
+   padding: 0;
+   font-weight: 600;
+   font-size: 20px;
+   color: #777;
+   text-transform: uppercase;
+  } 
+
+  .card .details h2 span{
+  font-weight: 500;
+  font-size: 16px;
+  color: #f38695;
+  display: block;
+  margin-top: 5px;
+   } 
+            @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e4e9ed;
+  font-family: Raleway, sans-serif;
+}
+
+br {
+  margin-bottom: 2%;
+}
+
+.header {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  grid-template-columns: 1fr max-content;
+}
+.header__logo {
+  fill: white;
+  width: 3rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+.header__bg {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(50%);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.header__title {
+font-family: 'Playfair Display', serif;
+
+  grid-area: 2 / 1 / 2 / 3;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  text-transform: uppercase;
+  font-size: 4rem;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+  margin-top: -5rem;
+}
+.header__log {
+  font-family: 'Permanent Marker', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Titillium Web', sans-serif;
+
+  display: flex;
+  align-items: center;
+  grid-area: 1 / 2 / 1 / 3;
+  padding: 1rem 2rem;
+  color: white;
+  cursor: pointer;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.header__log--icon {
+  fill: currentColor;
+  margin-right: .5rem;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+}
+.header__log--text {
+  text-transform: capitalize;
+}
+
+.about {
+font-family: 'Titillium Web', sans-serif;
+
+  width: 100%;
+  height: 60vh;
+  margin-top: -7rem;
+  clip-path: polygon(0 27%, 100% 0, 100% 100%, 0 100%);
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4"%3E%3Cpath fill="%239C92AC" fill-opacity="0.4" d="M1 3h1v1H1V3zm2-2h1v1H3V1z"%3E%3C/path%3E%3C/svg%3E');
+}
+.about__title {
+  font-family: 'Titillium Web', sans-serif;
+
+  padding-top: 7rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.about__title--text {
+  font-family: 'Titillium Web', sans-serif;
+
+  color: #232323;
+}
+.about__text {
+  width: 80%;
+  margin: 5% auto;
+}
+.about__text--content {
+  text-align: justify;
+}
+
+            *{padding: 0; margin: 0; box-sizing: border-box;}
+body{height: 900px;
+  font-family: 'Titillium Web', sans-serif;
+
+}
+header {
+    top:0px;
+	background: url('http://www.autodatz.com/wp-content/uploads/2017/05/Old-Car-Wallpapers-Hd-36-with-Old-Car-Wallpapers-Hd.jpg');
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+}
+header .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+	
+}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 80px;
+	margin-bottom: 30px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+
+button {
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #333;
+	background: #fff;
+	margin-bottom: 50px;
+	box-shadow: 0 3px 20px 0 #0000003b;
+}
+button:hover{
+	cursor: pointer;
+}
+            * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+}
+
+body {
+  background-color: #555;
+}
+
+.content-wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.news-card {
+  border: 0px solid aqua;
+  margin: 0.5rem;
+  position: relative;
+  height: 12rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  flex: 1;
+  min-width: 290px;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}
+
+@media (min-width: 900px) {
+
+.news-card {
+    height: 20rem
+}
+  }
+
+.news-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 80%);;
+      z-index: 0;
+    }
+
+.news-card__card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+/*     background: rgba(255,0,0,.5); */
+  }
+
+.news-card__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 3s ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: relative;
+    z-index: -1;
+  }
+
+.news-card__text-wrapper {
+    position: absolute;
+    bottom: 0rem;
+    padding: 1rem;
+    color: white;
+/*     background-color: rgba(0, 0, 0, 0.4); */
+    transition: background-color 1.5s ease;
+  }
+
+.news-card__title {
+    transition: color 1s ease;
+    margin-bottom: .5rem;
+  }
+
+.news-card__post-date {
+    font-size: .7rem;
+    margin-bottom: .5rem;
+    color: #CCC;
+  }
+
+.news-card__details-wrapper {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 1.5s ease, opacity 1s ease;
+  }
+
+@media (min-width: 900px) {
+    .news-card:hover .news-card__details-wrapper {
+      max-height: 20rem;
+      opacity: 1;
+    }
+    .news-card:hover .news-card__text-wrapper {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .news-card:hover .news-card__title {
+      color: yellow;
+    }
+    .news-card:hover .news-card__image {
+      transform: scale(1.2);
+      z-index: -1;
+    }
+  }
+
+.news-card__excerpt {
+    font-weight: 300;
+  }
+
+.news-card__read-more {
+    background: black;
+    color: #bbb;
+    display: block;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.3rem;
+    margin-top: 1rem;
+    border: 1px solid #444;
+    font-size: 0.8rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    text-decoration: none;
+    width: 7rem;
+    margin-left: auto;
+    position: relative;
+    z-index: 5;
+  }
+
+.news-card__read-more i {
+      position: relative;
+      left: 0.2rem;
+      color: #888;
+      transition: left 0.5s ease, color 0.6s ease;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+.news-card__read-more:hover i {
+      left: 0.5rem;
+      color: yellow;
+    }
+
+          #copyright {
+    padding: 20px 0 30px;
+    text-align: center;
+    letter-spacing: 0.05em;
+    bottom: 0%;
+    background-color: #FFF;
+}
+          /* Reset. */
+* {
+    box-sizing: border-box;
+}
+#footer .container #copyright {
+    
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.15em;
+    font-size: 1.2em;
+}
+
+/* Responsive. */
+@media (max-width: 900px) {
+    body {
+        font-size: 75%;
+    }
+}
+body {
+  margin: 0;
+  background: #b2d2c8;
+}
+a {
+  text-decoration: none;
+  color: #92BFB1;
+}
+a:hover {
+  background: #92BFB1;
+  color: #333333;
+}
+.sticky {
+  position: fixed;
+  z-index: 10;
+}
+.navbar--container {
+  top: 15%;
+  background: #ffffff;
+  height: 220px;
+  width: 90px;
+  box-shadow: 2px 2px 15px rgba(51, 51, 51, 0.1);
+}
+.navbar--icon {
+  margin-top: 24px;
+  margin-left: 49px;
+  font-size: 1em;
+}
+.navbar--icon:hover {
+  color: #92BFB1;
+  cursor: pointer;
+}
+.navbar--title {
+  margin-left: 27px;
+  margin-top: 35px;
+}
+.navbar--title h4 {
+  writing-mode: vertical-rl;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+.nav--open {
+  height: 100vh;
+  width: 300px;
+  background: #ffffff;
+  transition: all 0.4s ease-out;
+  opacity: 1;
+  box-shadow: 2px 2px 15px rgba(51, 51, 51, 0.1);
+}
+.nav--open-icon {
+  text-align: right;
+  padding: 20px;
+}
+.nav--open-icon i {
+  font-size: 1.8em;
+  color: #92BFB1;
+}
+.nav--open-icon i:hover {
+  color: #333333;
+  cursor: pointer;
+}
+.nav--open-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin-top: 35%;
+}
+.nav--open-menu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 30px;
+}
+.nav--open-menu a {
+  font-size: 2em;
+  font-weight: 100;
+  font-family: 'Playfair Display', serif;
+  padding: 15px 0;
+}
+.close {
+  transform: translateX(-300px);
+  transition: all 0.4s ease-out;
+  opacity: 0;
+}
+section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.two {
+  background: #8fbdaf;
+}
+.three {
+  background: #72ac9a;
+}
+h1 {
+  font-family: 'Abril Fatface', serif;
+  margin: 0;
+  line-height: 1em;
+  font-weight: 100;
+  color: #ffffff;
+  font-size: 3.5em;
+}
+h1 span {
+  font-style: italic;
+  text-decoration: underline;
+  color: #72ac9a;
+}
+.light {
+  color: #b2d2c8;
+}
+.underline {
+  text-decoration: underline;
+}
+
+
+
+.container {
+  display: flex;
+  width: 100%;
+  padding: 4% 2%;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.box {
+  flex: 1;
+  overflow: hidden;
+  transition: .5s;
+  margin: 0 2%;
+  box-shadow: 0 20px 30px rgba(0,0,0,.1);
+  line-height: 0;
+}
+
+.box > img {
+  width: 200%;
+  height: calc(100% - 10vh);
+  object-fit: cover; 
+  transition: .5s;
+}
+
+.box > span {
+  font-size: 3.8vh;
+  display: block;
+  text-align: center;
+  height: 10vh;
+  line-height: 2.6;
+}
+
+.box:hover { flex: 1 1 50%; }
+.box:hover > img {
+  width: 100%;
+  height: 100%;
+}
+ 
+        </style>
+    </head>
+    <body>
+        <div class="navbar--container sticky">
+            <div class="navbar--title"><h4>navigation</h4></div>
+            <div class="navbar--icon"><i class="fas fa-bars"></i></div>
+          </div>
+          <div class="nav--open close sticky">
+            <div class="nav--open-icon"><i class="fas fa-times"></i></div>
+            <div class="nav--open-title">explore</div>
+            <div class="nav--open-menu">
+              <a href="index.html">Home</a>
+              <a href="about.html">About</a>
+              <a href="work.html">Work</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+          <div class="header">
+            <div class="header__bg"></div>
+            <div class="header__logo">
+               
+               
+            </div>
+            <h1 class="header__title">Come work with us.</h1>
+            <div class="header__log">
+               </div>
+         </div>
+         
+         <div class="about">
+            <div class="about__title">
+               <h2 class="about__title--text">Who we are?</h2>
+            </div>
+            <div class="about__text">
+               <p class="about__text--content">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque officiis impedit exercitationem aperiam culpa repudiandae, architecto fugiat cumque dignissimos perferendis rerum eum aliquid assumenda consequatur aspernatur accusantium adipisci rem quasi!
+                  
+                  <br>
+                  
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex provident asperiores quisquam voluptatum dolorem. Hic animi asperiores quibusdam eum recusandae, similique obcaecati dolore, porro saepe consequuntur, ad reprehenderit voluptatibus voluptas!
+                  
+                  <br>
+                  
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, at qui quisquam sed maiores, rerum pariatur accusantium cum voluptates nihil ut aperiam nobis, suscipit dicta itaque obcaecati omnis culpa magnam.
+               </p>
+            </div>
+         </div>
+         <br>
+         <br>
+         <br>
+         
+           <div class="box">
+               <div class="card">
+                 <div class="imgBx">
+                     <img src="https://images.unsplash.com/photo-1532123675048-773bd75df1b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="images">
+                 </div>
+                 <div class="details">
+                     <h2>John Doe<br><span>CEO</span></h2>
+                 </div>
+               </div>
+             
+                <div class="card">
+                  <div class="imgBx">
+                     <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="images">
+                  </div>
+                  <div class="details">
+                     <h2>Jaaved Ali<br><span>CTO</span></h2>
+                   </div>
+                </div>
+         
+                <div class="card">
+                  <div class="imgBx">
+                     <img src="https://images.unsplash.com/photo-1548094878-84ced0f6896d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="images">
+                  </div>
+                  <div class="details">
+                     <h2>Anna Harvis<br><span>CMO</span></h2>
+                   </div>
+                </div>
+          
+           </div>
+            
+<script>
+
+let open = document.querySelector('.navbar--icon');
+let menu = document.querySelector('.nav--open');
+let close = document.querySelector('.nav--open-icon');
+
+open.addEventListener('click', function() {
+  menu.classList.toggle('close');
+});
+
+
+close.addEventListener('click', function() {
+  menu.classList.toggle('close');
+})
+document.addEventListener('DOMContentLoaded', function() {
+    var parent = document.querySelector('.splitview'),
+        topPanel = parent.querySelector('.top'),
+        handle = parent.querySelector('.handle'),
+        skewHack = 0,
+        delta = 0;
+
+    // If the parent has .skewed class, set the skewHack var.
+    if (parent.className.indexOf('skewed') != -1) {
+        skewHack = 1000;
+    }
+
+    parent.addEventListener('mousemove', function(event) {
+        // Get the delta between the mouse position and center point.
+        delta = (event.clientX - window.innerWidth / 2) * 0.5;
+
+        // Move the handle.
+        handle.style.left = event.clientX + delta + 'px';
+
+        // Adjust the top panel width.
+        topPanel.style.width = event.clientX + skewHack + delta + 'px';
+    });
+});
+</script>
+<script src="https://kit.fontawesome.com/a274929d95.js" crossorigin="anonymous"></script>
+  </body>
+
+</html>
